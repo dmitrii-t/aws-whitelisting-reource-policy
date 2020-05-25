@@ -22,4 +22,8 @@ pip_install:
 	. .venv/bin/activate; pip install -r requirements.txt
 
 .PHONY: setup
-setup: venv pip_install
+setup: venv pip_install clean
+
+.PHONY: clean
+clean:
+	rm -rf .pulumi/ && mkdir .pulumi
