@@ -14,7 +14,4 @@ RUN pip install -r requirements.txt
 
 USER 1001
 
-#RUN pulumi login file://~ \
-#    && pulumi plugin install resource aws v2.5.0
-
 ENTRYPOINT ["./entrypoint.sh"]
