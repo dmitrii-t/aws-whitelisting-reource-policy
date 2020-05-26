@@ -4,10 +4,7 @@ services:
 
   pulumi:
 #    image: "pulumi/pulumi:v2.2.1"
-    build:
-      context: .
-      args:
-        - PULUMI_CONFIG_PASSPHRASE=dev
+    build: .
     volumes:
       - .pulumi:/home/pulumi/.pulumi
       - .:/home/pulumi/app
