@@ -9,8 +9,8 @@ services:
       args:
         - PULUMI_CONFIG_PASSPHRASE=dev
     volumes:
-      - .pulumi:/workdir/.pulumi
-      - .:/workdir/app
+      - .pulumi:/home/pulumi/.pulumi
+      - .:/home/pulumi/app
     env_file:
       - .env
 

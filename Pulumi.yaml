@@ -2,5 +2,5 @@ name: aws-whitelist-resource-policy
 description: An AWS Python Pulumi program to demonstrate resource policy configuration to whitelist specified IAM roles to access the resource
 runtime: python
 config: .pulumi/config
-backend: {url: file:///workdir}
+backend: {url: file://~}
 
