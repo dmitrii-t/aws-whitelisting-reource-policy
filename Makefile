@@ -11,7 +11,7 @@ pulumi:
 
 .PHONY: build
 build:
-	docker-compose build --no-cache --build-arg PULIMI_UID="$(shell id -u)" --build-arg PULUMI_CONFIG_PASSPHRASE=pu1umi pulumi
+	export UID="$(shell id -u)"; docker-compose build --no-cache pulumi
 
 .PHONY: venv
 venv:

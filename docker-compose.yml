@@ -1,21 +1,14 @@
 ---
 version: '3'
 services:
-
   pulumi:
-#    image: "pulumi/pulumi:v2.2.1"
-    build: .
+    build:
+      context: .
+      args:
+        - PULIMI_UID="${UID}"
+        - PULUMI_CONFIG_PASSPHRASE=dev
     volumes:
       - .pulumi:/home/pulumi/.pulumi
       - .:/home/pulumi/app
     env_file:
       - .env
-
-#  deploy:
-#    <<: *pulumi
-#    command: "stack init dev --secrets-provider=passphrase --non-interactive --logtostderr"
-#    command: ""
-
-
-
-
