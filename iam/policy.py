@@ -5,8 +5,6 @@ import pulumi_aws as aws
 
 config = pulumi.Config()
 
-switch_role_username = config.require('username')
-
 caller_identity = aws.get_caller_identity()
 
 account_id = caller_identity.account_id
@@ -24,7 +22,7 @@ def get_identity_policy_document() -> str:
                 "secretsmanager:ListSecrets",
                 "secretsmanager:ListSecretVersionIds",
 
-                "kms:ListKey*"
+                "kms:*"
             ]
         }]
     })
@@ -37,7 +35,7 @@ def get_assume_role_policy_document() -> str:
             "Action": "sts:AssumeRole",
             "Effect": "Allow",
             "Principal": {
-                "AWS": f"arn:aws:iam::{account_id}:user/{switch_role_username}"
+                "AWS": f"{account_id}"
             }
         }]
     })
@@ -57,6 +55,8 @@ def get_secret_resource_policy_document(trusted_role_unique_id: str) -> str:
                 "StringNotLike": {
                     "aws:userId": [
                         f"{trusted_role_unique_id}:*",
+
+                        f"{caller_identity.user_id}",
                         f"{account_id}"
                     ]
                 }
