@@ -7,7 +7,7 @@ endif
 
 .PHONY: pulumi
 pulumi:
-	docker-compose run pulumi $(PULUMI_ARGS)
+	export UID="$(shell id -u)"; docker-compose run pulumi $(PULUMI_ARGS)
 
 .PHONY: build
 build:

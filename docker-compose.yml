@@ -5,7 +5,7 @@ services:
     build:
       context: .
       args:
-        - PULIMI_UID="${UID}"
+        - PULIMI_UID=${UID}
         - PULUMI_CONFIG_PASSPHRASE=dev
     volumes:
       - .pulumi:/home/pulumi/.pulumi

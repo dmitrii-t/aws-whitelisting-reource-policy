@@ -1,5 +1,7 @@
+.venv
 *.pyc
-venv/
+
+.pulumi
 
 .idea
 
