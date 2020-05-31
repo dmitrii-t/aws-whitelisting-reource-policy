@@ -17,7 +17,7 @@ The project configures Pulumi as Docker image so the onlyy requirement is to hav
     make pulumi up
     ```
     Deployed stack will have two IAM roles `TrustedRole`, `NoAccessRole`, a secret and a resource policy attached to the secret. 
-    The resource policy will restrict access to `GetSecretValue` action only to current user, root user and whoever assumes `TrusteedRole`.
+    The resource policy will restrict access to `GetSecretValue` action to current user, root user and whoever assumes `TrusteedRole` only.
     Thus user assumed `NoAccessRole` wouldn't have accees to the secret value. 
     
     Feel free to assume roles `TrustedRole`, `NoAccessRole` and try to get secret value.
